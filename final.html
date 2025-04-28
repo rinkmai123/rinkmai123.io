@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>WebGIS Q2 midterm of [YourFullName] - [StudentID] - Study area: Trieu Son, Thanh Hoa</title>
+    <title>WebGIS Q2 midterm of Nguyễn Võ Thanh Mai - 2106080085 - Study area: Trieu Son, Thanh Hoa</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Load Leaflet CSS -->
@@ -59,7 +59,7 @@
     // Style function
     function style(feature) {
         return {
-            fillColor: getColor(feature.properties.Pop_Density), // Adjust attribute name
+            fillColor: getColor(Pop_Dens), // Adjust attribute name
             weight: 1,
             opacity: 1,
             color: 'white',
@@ -69,14 +69,14 @@
     }
 
     // Load GeoJSON of your Communes
-    fetch('communes.geojson') // You need to upload your communes.geojson
+    fetch('TrSon_Pop_Dens_web') // You need to upload your TrSon_Pop_Dens_web
     .then(response => response.json())
     .then(data => {
         L.geoJson(data, {
             style: style,
             onEachFeature: function (feature, layer) {
                 // Tooltip (permanent name label)
-                layer.bindTooltip(feature.properties.CommuneName, { 
+                layer.bindTooltip(VARNAME_3, { 
                     permanent: true,
                     direction: "center",
                     className: "label"
